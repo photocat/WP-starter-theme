@@ -42,7 +42,7 @@ module.exports = [
                 },
                 // loader for images and icons (only required if css references image files)
                 {
-                    test: /\.(png|jpg|gif)$/,
+                    test: /\.(png|jpg|gif|svg)$/,
                     type: 'asset/resource',
                     generator: {
                         filename: './build/img/[name][ext]',

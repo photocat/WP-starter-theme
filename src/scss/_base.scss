@@ -1,8 +1,18 @@
-html {
+//Font
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+html {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   text-rendering: optimizeLegibility;
+  font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 html, body {
@@ -10,14 +20,89 @@ html, body {
 }
 
 body {
-  font-family: $sans;
+  font-family: $font;
+  font-weight: $regular;
+  font-size: 1.8rem;
+  background-color: $blue;
+  color: $white;
 }
 
 a {
-    color: #3897f0;
+    color: $blue;
     text-decoration: none
 }
 
 a:hover {
-    text-decoration: underline
+    text-decoration: none
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 9.6rem;
+  font-weight: $black;
+  line-height: 1.1;
+
+  &--blue {
+    color: $blue;
+    font-size: 4.4rem;
+    line-height: 1.32;
+    font-weight: $bold;
+  }
+
+  &--post {
+    font-size: 2.4rem;
+    line-height: 1.58;
+    font-weight: $bold;
+    position: relative;
+    z-index: 2;
+
+    &:after {
+      content: "";
+      display: block;
+      height: 2.1rem;
+      width: 87%;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      background-color: $blue;
+      z-index: -1;
+    }
+  }
+}
+
+.post-title {
+    color: $light-gray;
+    line-height: 1.5;
+    max-width: 24rem;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  padding: 1rem 4.3rem;
+  border-radius: .8rem;
+  background-color: $white;
+  color: $gray;
+  font-size: 2.4rem;
+  line-height: 2;
+  margin-bottom: 2.6rem;
+  transition: background-color, outline-width .3s ease-in;
+
+  &:hover {
+    outline: rgba(255, 255, 255, 0.4) solid 5px;
+  }
+
+  &:active {
+    background-color: $beige;
+  }
 }

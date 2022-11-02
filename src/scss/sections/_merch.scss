@@ -1,0 +1,98 @@
+.merch {
+  background-color: $dark;
+  padding: 6rem 0 6.4rem;
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__text {
+    margin-bottom: 5.5rem;
+  }
+
+  .container {
+    overflow-x: hidden;
+  }
+
+  &__swiper {
+    margin-bottom: 5rem;
+    .swiper-wrapper {
+    }
+
+    &__slide {
+      height: auto;
+      width: 93rem;
+      background-color: $gray;
+
+      a {
+        color: $white;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 4rem;
+        padding: 4.7rem 2.9rem 4.7rem 2.9rem;
+      }
+
+      &__title {
+        color: $white;
+        font-size: 2.4rem;
+        line-height: 1.58;
+        font-weight: $bold;
+        margin-bottom: 6.6rem;
+      }
+
+      &__text {
+        color: $light-gray;
+        line-height: 1.5;
+      }
+
+      &__image {
+        width: 46.77%;
+        padding: 5rem 8.5rem 6rem;
+        margin-bottom: 3rem;
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+        }
+      }
+    }
+
+    &__controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.2rem;
+
+      &__pagination {
+        .swiper-pagination-bullet {
+          height: 1.8rem;
+          width: 1.8rem;
+          background-color: transparent;
+          border: 1px solid $white;
+          border-radius: 50%;
+          opacity: 1;
+
+          &-active {
+            background-color: $blue;
+            border-color: $blue;
+          }
+        }
+      }
+
+      &__navigation {
+        display: flex;
+        gap: 4.8rem;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          position: static;
+          height: 4.2rem;
+          width: 2.3rem;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

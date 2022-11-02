@@ -1,5 +1,24 @@
 
 // Fonts
-// -------------------------
-$sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$serif: Georgia, serif !default;
+$font: 'Inter', sans-serif;
+$regular: 400;
+$medium: 500;
+$bold: 700;
+$black: 900;
+
+// Colors
+$blue: #0094FF;
+$gray: #1F1F1F;
+$dark: #000000;
+$white: #FFFFFF;
+$light-gray: #838383;
+$light: #E4F4FF;
+$beige: #F3F3F3;
+$brown: #353535;
+
+// Breakpoints
+$xs: 480px;
+$sm: 768px;
+$md: 1024px;
+$lg: 1280px;
+

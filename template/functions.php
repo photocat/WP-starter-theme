@@ -119,6 +119,18 @@ function evil_theme_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Footer', 'evil-theme' ),
+            'id'            => 'sidebar-2',
+            'description'   => esc_html__( 'Add widgets here.', 'evil-theme' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
 }
 add_action( 'widgets_init', 'evil_theme_widgets_init' );
 
@@ -180,3 +192,54 @@ function add_slug_to_body_class($classes) {
     }
     return $classes;
 }
+
+/**
+ * Register custom post types.
+ */
+add_action('init', 'create_post_type');
+function create_post_type() {
+    register_post_type( 'merch',
+        array(
+            'labels' => array(
+                'name' => __( 'Merch' ),
+                'singular_name' => __( 'Merch' )
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'rewrite' => array('slug' => 'merch'),
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+            'menu_icon' => 'dashicons-buddicons-activity',
+            'publicly_queryable' => true,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'query_var'          => true,
+            'capability_type'    => 'post',
+            'hierarchical'       => false,
+            'menu_position'      => 10,
+            'show_in_rest'       => true,
+        )
+    );
+
+    register_post_type( 'clients',
+        array(
+            'labels' => array(
+                'name' => __( 'Clients' ),
+                'singular_name' => __( 'Client' )
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'rewrite' => array('slug' => 'client'),
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+            'menu_icon' => 'dashicons-businessperson',
+            'publicly_queryable' => true,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'query_var'          => true,
+            'capability_type'    => 'post',
+            'hierarchical'       => false,
+            'menu_position'      => 11,
+            'show_in_rest'       => true,
+        )
+    );
+}
+

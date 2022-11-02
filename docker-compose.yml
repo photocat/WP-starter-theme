@@ -19,6 +19,7 @@ services:
       - ./template:/var/www/html/wp-content/themes/evil-theme
       - ./build:/var/www/html/wp-content/themes/evil-theme/build
       - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/uploads:/var/www/html/wp-content/uploads
     env_file: .env
     environment:
       - WORDPRESS_DB_HOST=db:3306

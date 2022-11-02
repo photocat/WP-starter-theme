@@ -1,2 +1,16 @@
+//Global
 @import "scss/global-vars";
 @import "scss/base";
+
+//Swiper
+@import "../node_modules/swiper/swiper.scss";
+@import "../node_modules/swiper/modules/pagination/pagination.scss";
+@import "../node_modules/swiper/modules/navigation/navigation.scss";
+
+//Components
+@import "scss/components/header";
+
+//Sections
+@import "scss/sections/main-hero";
+@import "scss/sections/hot-news";
+@import "scss/sections/merch";
