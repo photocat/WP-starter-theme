@@ -1,5 +1,8 @@
 # Test task
 
+## Description
+Stack: Wordpress, PHP, HTML, CSS, jQuery, JS, Webpack, Git, Docker, ACF.
+
 ## How to install:
 1. Download or clone repository
 2. Create in the root of project `.env` file with vars
