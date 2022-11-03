@@ -192,54 +192,45 @@ function add_slug_to_body_class($classes) {
     }
     return $classes;
 }
-
 /**
- * Register custom post types.
+ * Fix pagination issue.
  */
-add_action('init', 'create_post_type');
-function create_post_type() {
-    register_post_type( 'merch',
-        array(
-            'labels' => array(
-                'name' => __( 'Merch' ),
-                'singular_name' => __( 'Merch' )
-            ),
-            'public' => true,
-            'has_archive' => false,
-            'rewrite' => array('slug' => 'merch'),
-            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
-            'menu_icon' => 'dashicons-buddicons-activity',
-            'publicly_queryable' => true,
-            'show_ui'            => true,
-            'show_in_menu'       => true,
-            'query_var'          => true,
-            'capability_type'    => 'post',
-            'hierarchical'       => false,
-            'menu_position'      => 10,
-            'show_in_rest'       => true,
-        )
-    );
+function codernote_request($query_string ) {
+    if ( isset( $query_string['page'] ) ) {
+        if ( ''!=$query_string['page'] ) {
+            if ( isset( $query_string['name'] ) ) {
+                unset( $query_string['name'] ); }
+        }
+    }
+    return $query_string;
+}
+add_filter('request', 'codernote_request');
 
-    register_post_type( 'clients',
-        array(
-            'labels' => array(
-                'name' => __( 'Clients' ),
-                'singular_name' => __( 'Client' )
-            ),
-            'public' => true,
-            'has_archive' => false,
-            'rewrite' => array('slug' => 'client'),
-            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
-            'menu_icon' => 'dashicons-businessperson',
-            'publicly_queryable' => true,
-            'show_ui'            => true,
-            'show_in_menu'       => true,
-            'query_var'          => true,
-            'capability_type'    => 'post',
-            'hierarchical'       => false,
-            'menu_position'      => 11,
-            'show_in_rest'       => true,
-        )
-    );
+add_action('pre_get_posts', 'codernote_pre_get_posts');
+function codernote_pre_get_posts( $query ) {
+    if ( $query->is_main_query() && !$query->is_feed() && !is_admin() ) {
+        $query->set( 'paged', str_replace( '/', '', get_query_var( 'page' ) ) );
+    }
 }
 
+
+/**
+ * Redirect to home page from single pages because they have not finished yet.
+ */
+function redirect_to_home() {
+    if(get_post_type() === 'clients' || is_single()) {
+        wp_redirect(home_url());
+        exit();
+    }
+}
+add_action('template_redirect', 'redirect_to_home');
+
+/**
+ * Widgets
+ */
+require get_template_directory() . '/inc/widgets.php';
+
+/**
+ * Custom Post Types
+ */
+require get_template_directory() . '/inc/cpt.php';

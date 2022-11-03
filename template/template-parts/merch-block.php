@@ -58,10 +58,11 @@ $the_query = new WP_Query( $query_args );
         <div class="merch__swiper__controls">
             <div class="merch__swiper__controls__pagination"></div>
             <div class="merch__swiper__controls__navigation">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button swiper-button-prev"></div>
+                <div class="swiper-button swiper-button-next"></div>
             </div>
         </div>
         <?php endif; ?>
     </div>
+    <div class="merch__bg"></div>
 </section>

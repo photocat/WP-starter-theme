@@ -7,6 +7,11 @@
   background-color: transparent;
   width: 100%;
 
+  @media screen and (max-width: $md) {
+    height: 6.7rem;
+    padding: 1rem 0;
+  }
+
   &__wrapper {
     display: flex;
     flex-flow: row nowrap;
@@ -15,6 +20,10 @@
     margin: 0 auto;
     justify-content: flex-end;
     align-items: center;
+
+    @media screen and (max-width: $xl) {
+      padding: 0 3rem;
+    }
   }
 
   //Logo
@@ -29,100 +38,6 @@
     }
   }
 
-  //Menu
-  &__main-navigation {
-    .menu {
-      display: flex;
-      flex-flow: row nowrap;
-      gap: 1.2rem
-    }
-
-    .menu-item {
-      display: flex;
-      align-items: center;
-      border: solid 1px transparent;
-      transition: color, border .3s ease-in-out;
-      color: $white;
-
-      a {
-        padding: .5rem 2.4rem;
-        min-width: 5.8rem;
-        color: inherit;
-        flex: 1;
-        font-weight: $bold;
-        line-height: 2.66;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-
-      &:hover {
-        border: solid 1px $gray;
-        color: $gray;
-      }
-
-      &-has-children {
-        position: relative;
-
-        &:hover {
-          &>a {
-            &:after {
-              border-width: 0 7px 8px 7px;
-              border-color: transparent transparent $gray transparent;
-            }
-          }
-
-          .sub-menu {
-            display: block;
-          }
-        }
-
-        &>a {
-          &:after {
-            content: "";
-            display: inline-block;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: .8rem .7rem 0 .7rem;
-            border-color: $white transparent transparent transparent;
-            margin-left: 1.7rem;
-            transition: border-width, border-color .3s ease-in;
-          }
-        }
-      }
-    }
-
-    .sub-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background-color: $gray;
-      list-style: none;
-      display: none;
-      margin: 0;
-      z-index: 1;
-
-      a {
-        font-weight: $regular;
-      }
-
-      &>.menu-item {
-        border: solid 1px $gray;
-        &:hover {
-          background-color:  $white;
-          color: $gray;
-        }
-      }
-    }
-
-    &__menu-toggle {
-      display: none;
-    }
-  }
-
   //Search
   &__search {
     margin-left: 10.7rem;
@@ -130,6 +45,10 @@
       position: relative;
       display: flex;
       flex-flow: row nowrap;
+
+      @media screen and (max-width: $md) {
+        position: static;
+      }
     }
 
     &__input {
@@ -148,6 +67,13 @@
       border: none;
       outline: none;
       transition: right, width .3s ease-in;
+
+      @media screen and (max-width: $md) {
+        width: calc(100% - 6rem);
+        top: 100%;
+        transform: translateY(1rem);
+        right: 3rem;
+      }
 
       &::-webkit-search-cancel-button {
         filter: grayscale(1) invert(1);
@@ -169,6 +95,188 @@
         svg {
           color: $gray;
         }
+      }
+    }
+  }
+}
+
+//Menu
+.header__main-navigation,
+.footer {
+  .menu {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1.2rem
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    border: solid 1px transparent;
+    transition: color, border .3s ease-in-out;
+    color: $white;
+
+    a {
+      padding: .5rem 2.4rem;
+      min-width: 5.8rem;
+      color: inherit;
+      flex: 1;
+      font-weight: $bold;
+      line-height: 2.66;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &:hover {
+      border: solid 1px $gray;
+      color: $gray;
+    }
+
+    &-has-children {
+      position: relative;
+
+      &:hover {
+        &>a {
+          &:after {
+            border-width: 0 7px 8px 7px;
+            border-color: transparent transparent $gray transparent;
+          }
+        }
+
+        .sub-menu {
+          display: block;
+        }
+      }
+
+      &>a {
+        &:after {
+          content: "";
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: .8rem .7rem 0 .7rem;
+          border-color: $white transparent transparent transparent;
+          margin-left: 1.7rem;
+          transition: border-width, border-color .3s ease-in;
+        }
+      }
+    }
+  }
+
+  .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $gray;
+    list-style: none;
+    display: none;
+    margin: 0;
+    z-index: 1;
+
+    a {
+      font-weight: $regular;
+    }
+
+    &>.menu-item {
+      border: solid 1px $gray;
+      &:hover {
+        background-color:  $white;
+        color: $gray;
+      }
+    }
+  }
+
+  &__menu-toggle {
+    display: none;
+    width: 4rem;
+    height: 4rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    border:.1rem solid #fff;
+    background: transparent;
+    margin-left: 3rem;
+
+    @media screen and (max-width: $md) {
+      display: flex;
+    }
+
+    .menu-btn__burger {
+      display: block;
+      width: 2.5rem;
+      height: .3rem;
+      background: $white;
+      border-radius: .5rem;
+      transition: all .2s ease-in-out;
+
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 2.5rem;
+        height: .3rem;
+        background: $white;
+        border-radius: .2rem;
+        transition: all .2s ease-in-out;
+      }
+
+      &:before {
+        transform: translateY(-0.8rem);
+      }
+
+      &:after {
+        transform: translateY(0.8rem);
+      }
+    }
+
+    &.open {
+      .menu-btn__burger {
+        transform: translateX(-5rem);
+        background: transparent;
+
+        &:before {
+          transform: rotate(45deg) translate(3.5rem, -3.5rem);
+        }
+
+        &:after {
+          transform: rotate(-45deg) translate(3.5rem, 3.5rem);
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: $md) {
+  .header__main-navigation {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    z-index: 6;
+    background: $blue;
+    top: 6.7rem;
+    left: 0;
+    padding: 3rem;
+
+    .menu {
+      flex-flow: column nowrap;
+      gap: 2rem;
+
+      .menu-item-has-children {
+        align-items: flex-start;
+        flex-flow: column nowrap;
+      }
+
+      .sub-menu {
+        position: static;
       }
     }
   }

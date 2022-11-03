@@ -8,15 +8,17 @@
  *
  * @package evil-theme
  */
-
 ?>
 
-	<footer id="colophon" class="site-footer">
-
-	</footer><!-- #colophon -->
-</div><!-- #page -->
-
-<?php wp_footer(); ?>
-
-</body>
+            <footer class="footer">
+                <div class="footer__wrapper">
+                    <div class="header__site-branding">
+                        <?php the_custom_logo(); ?>
+                    </div><!-- .site-branding -->
+                    <?php get_sidebar( 'footer' ); ?>
+                </div>
+            </footer><!-- footer -->
+        </div><!-- #page -->
+        <?php wp_footer(); ?>
+    </body>
 </html>

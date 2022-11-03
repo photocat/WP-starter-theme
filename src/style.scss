@@ -9,8 +9,17 @@
 
 //Components
 @import "scss/components/header";
+@import "scss/components/footer";
 
 //Sections
 @import "scss/sections/main-hero";
 @import "scss/sections/hot-news";
 @import "scss/sections/merch";
+@import "scss/sections/clients";
+@import "scss/sections/about-us";
+
+//Pages
+@import "scss/pages/blog";
+
+//Widgets
+@import "scss/sections/posts-widget";

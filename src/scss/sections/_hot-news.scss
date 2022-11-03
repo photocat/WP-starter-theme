@@ -16,6 +16,10 @@
     column-gap: 7rem;
     row-gap: 5.5rem;
 
+    @media screen and (max-width: $md) {
+      grid-template-columns: 1fr;
+    }
+
     &__item {
       padding: 1rem;
       transition: outline-width .3s ease-in;
@@ -40,10 +44,6 @@
           object-fit: cover;
         }
       }
-
-      &__content {
-      }
-
 
       &__title {
         margin-bottom: 3rem;

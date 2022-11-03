@@ -1,0 +1,33 @@
+.about-us {
+  padding: 6rem 0 9.7rem;
+  background-color: $gray;
+
+  &__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 16.3rem;
+
+    @media screen and (max-width: $md) {
+      flex-flow: column nowrap;
+      gap: 4rem;
+    }
+  }
+
+  &__title {
+    flex: 0 0 auto;
+  }
+
+  &__text {
+    flex: 0 1 80.7rem;
+    color: $light-gray;
+    font-size: 3.2rem;
+    line-height: 1.56;
+    font-weight: $medium;
+
+    @media screen and (max-width: $md) {
+      font-size: 2rem;
+      line-height: 1.2;
+      flex-basis: auto;
+    }
+  }
+}

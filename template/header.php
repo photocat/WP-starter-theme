@@ -25,17 +25,10 @@
 	    <header id="masthead" class="header">
             <div class="header__wrapper">
                 <div class="header__site-branding">
-                    <?php if ( is_front_page() && is_home() ) :
-                        the_custom_logo();
-                    ?>
-                    <?php else : ?>
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php the_custom_logo(); ?></a>
-                    <?php endif;?>
+                    <?php the_custom_logo(); ?>
                 </div><!-- .site-branding -->
 
                 <nav id="site-navigation" class="header__main-navigation">
-                    <button class="header__main-navigation__menu-toggle" aria-controls="primary-menu"
-                            aria-expanded="false"></button>
                     <?php
                         wp_nav_menu(
                             array(
@@ -48,5 +41,10 @@
                 <div class="header__search">
                     <?php get_search_form(); ?>
                 </div>
+                <button class="header__main-navigation__menu-toggle js-mobile-menu menu-btn"
+                        aria-controls="primary-menu"
+                        aria-expanded="false">
+                    <span class="menu-btn__burger"></span>
+                </button>
             </div>
 	    </header><!-- #masthead -->

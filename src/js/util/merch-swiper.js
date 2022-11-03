@@ -4,7 +4,7 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 const swiper = new Swiper('.merch__swiper', {
     modules: [Navigation, Pagination],
     direction: 'horizontal',
-    loop: true,
+    loop: false,
     slidesPerView: 1,
     spaceBetween: 50,
     pagination: {
